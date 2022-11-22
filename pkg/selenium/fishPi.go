@@ -18,7 +18,6 @@ func (f fishPiEvolve) Login(config config.Config) {
 	we.SendKeys(config.User.Username)
 	we, _ = wd.FindElement(selenium.ByID, "loginPassword")
 	we.SendKeys(config.User.Password)
-	time.Sleep(time.Second * 10)
 	// login button
 	we, err := wd.FindElement(selenium.ByXPATH, "/html/body/div[3]/div/div[1]/div/button[1]")
 	we.Click()
@@ -58,5 +57,20 @@ func (f fishPiEvolve) LoadCloudArchive(config config.Config) {
 	time.Sleep(time.Second * 5) // wait css load
 	st, _ := wd.FindElement(selenium.ByXPATH, "/html/body/div[2]/div/div[2]/div/div/section/div[8]/div[8]/div/div[2]/div/div[2]/p/button[1]")
 	st.Click()
+
+}
+
+func (f fishPiEvolve) ClickMetalA() {
+	wd := f.webDriver
+	for true {
+		we, _ := wd.FindElement(selenium.ByID, "incSheet_MetalA")
+		we.Click()
+		we, _ = wd.FindElement(selenium.ByID, "incWrought_IronA")
+		we.Click()
+		we, _ = wd.FindElement(selenium.ByID, "incBrickA")
+		we.Click()
+
+		time.Sleep(time.Second * 10)
+	}
 
 }

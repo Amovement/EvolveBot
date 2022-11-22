@@ -9,6 +9,7 @@ import (
 type SeleniumControl interface {
 	Login(config.Config)
 	LoadCloudArchive(config.Config)
+	ClickMetalA()
 }
 
 func NewSeleniumControl(config config.Config) SeleniumControl {
